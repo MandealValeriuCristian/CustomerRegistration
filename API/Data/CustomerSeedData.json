@@ -1,0 +1,203 @@
+[
+  {
+
+    "Name": "John Doe",
+    "WebsiteURL": "https://www.johndoe.com",
+    "Email": "johndoe@example.com",
+    "Phone": "+1234567890",
+    "PostalAddress": {
+
+      "Street": "123 Main Street",
+      "Number": 10,
+      "PostCode": "12345",
+      "City": "Cityville",
+      "Country": "USA"
+    },
+    "InvoicingAddress": {
+
+      "Street": "456 Oak Avenue",
+      "Number": 20,
+      "PostCode": "54321",
+      "City": "Townsville",
+      "Country": "USA"
+    }
+  },
+  {
+
+    "Name": "Jane Smith",
+    "WebsiteURL": "https://www.janesmith.com",
+    "Email": "jane.smith@example.com",
+    "Phone": "+1987654321",
+    "PostalAddress": {
+
+      "Street": "789 Elm Street",
+      "Number": 30,
+      "PostCode": "67890",
+      "City": "Villageville",
+      "Country": "USA"
+    },
+    "InvoicingAddress": null
+  },
+  {
+
+    "Name": "Alice Johnson",
+    "WebsiteURL": "https://www.alicejohnson.com",
+    "Email": "alice.johnson@example.com",
+    "Phone": "+1122334455",
+    "PostalAddress": {
+
+      "Street": "321 Pine Avenue",
+      "Number": 40,
+      "PostCode": "54321",
+      "City": "Forestville",
+      "Country": "USA"
+    },
+    "InvoicingAddress": {
+      "Street": "654 Cedar Road",
+      "Number": 50,
+      "PostCode": "09876",
+      "City": "Woodsville",
+      "Country": "USA"
+    }
+  },
+  {
+
+    "Name": "Mike Brown",
+    "WebsiteURL": "https://www.mikebrown.com",
+    "Email": "mike.brown@example.com",
+    "Phone": "+1555666777",
+    "PostalAddress": {
+
+      "Street": "987 Maple Lane",
+      "Number": 60,
+      "PostCode": "34567",
+      "City": "Mapleville",
+      "Country": "USA"
+    },
+    "InvoicingAddress": null
+  },
+  {
+
+    "Name": "Sarah Lee",
+    "WebsiteURL": "https://www.sarahlee.com",
+    "Email": "sarah.lee@example.com",
+    "Phone": "+1999888777",
+    "PostalAddress": {
+
+      "Street": "741 Birch Street",
+      "Number": 70,
+      "PostCode": "23456",
+      "City": "Birchville",
+      "Country": "USA"
+    },
+    "InvoicingAddress": {
+
+      "Street": "852 Oak Road",
+      "Number": 80,
+      "PostCode": "45678",
+      "City": "Oakville",
+      "Country": "USA"
+    }
+  },
+  {
+
+    "Name": "David Wilson",
+    "WebsiteURL": "https://www.davidwilson.com",
+    "Email": "david.wilson@example.com",
+    "Phone": "+1777666555",
+    "PostalAddress": {
+
+      "Street": "369 Pine Road",
+      "Number": 90,
+      "PostCode": "87654",
+      "City": "Pineville",
+      "Country": "USA"
+    },
+    "InvoicingAddress": {
+
+      "Street": "258 Elm Lane",
+      "Number": 100,
+      "PostCode": "54321",
+      "City": "Elmville",
+      "Country": "USA"
+    }
+  },
+  {
+
+    "Name": "Emily Taylor",
+    "WebsiteURL": "https://www.emilytaylor.com",
+    "Email": "emily.taylor@example.com",
+    "Phone": "+1888999000",
+    "PostalAddress": {
+
+      "Street": "963 Oak Avenue",
+      "Number": 110,
+      "PostCode": "76543",
+      "City": "Oaktown",
+      "Country": "USA"
+    },
+    "InvoicingAddress": null
+  },
+  {
+
+    "Name": "Chris Evans",
+    "WebsiteURL": "https://www.chrisevans.com",
+    "Email": "chris.evans@example.com",
+    "Phone": "+1666777888",
+    "PostalAddress": {
+
+      "Street": "159 Maple Street",
+      "Number": 120,
+      "PostCode": "34567",
+      "City": "Maplewood",
+      "Country": "USA"
+    },
+    "InvoicingAddress": {
+
+      "Street": "753 Cedar Lane",
+      "Number": 130,
+      "PostCode": "65432",
+      "City": "Cedarville",
+      "Country": "USA"
+    }
+  },
+  {
+
+    "Name": "Laura Clark",
+    "WebsiteURL": "https://www.lauraclark.com",
+    "Email": "laura.clark@example.com",
+    "Phone": "+1888777666",
+    "PostalAddress": {
+
+      "Street": "357 Elm Road",
+      "Number": 140,
+      "PostCode": "98765",
+      "City": "Elmwood",
+      "Country": "USA"
+    },
+    "InvoicingAddress": {
+
+      "Street": "951 Pine Avenue",
+      "Number": 150,
+      "PostCode": "23456",
+      "City": "Pineville",
+      "Country": "USA"
+    }
+  },
+  {
+
+    "Name": "Michaela Rodriguez",
+    "WebsiteURL": "https://www.michaelarodriguez.com",
+    "Email": "michaela.rodriguez@example.com",
+    "Phone": "+1777888999",
+    "PostalAddress": {
+
+      "Street": "753 Birch Lane",
+      "Number": 160,
+      "PostCode": "87654",
+      "City": "Birchwood",
+      "Country": "USA"
+    },
+    "InvoicingAddress": null
+  }
+]
