@@ -43,8 +43,6 @@ public class CustomersController : ControllerBase
         if (customers.Count == 0)
             return NoContent();
 
-        //var customerDtos = _mapper.Map<List<CustomerForListDto>>(customers);
-
         return Ok(customers);
     }
 
