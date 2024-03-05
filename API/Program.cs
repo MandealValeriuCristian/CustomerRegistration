@@ -1,4 +1,6 @@
 using API.Data;
+using API.Mappers;
+using API.Services;
 using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,11 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddScoped<ICustomersService, CustomersService>();
+
+builder.Services.AddAutoMapper(typeof(MapperProfiles).Assembly);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -25,7 +32,7 @@ try
 {
     var context = services.GetRequiredService<DataContext>();
     await context.Database.MigrateAsync();
-    await Seed.SeedData(context);
+    await Seed.SeedData(context, builder.Environment.IsDevelopment());
 }
 catch (Exception ex)
 {

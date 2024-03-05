@@ -6,21 +6,23 @@ namespace API.Data;
 
 public class Seed
 {
-    public static async Task SeedData(DataContext context)
+    public static async Task SeedData(DataContext context, bool isEnvDevelopment)
     {
-        if (await context.Customers.AnyAsync()) return;
-        var customerData = await File.ReadAllTextAsync("Data/CustomerSeedData.json");
-
-        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-
-        var customers = JsonSerializer.Deserialize<List<Customer>>(customerData);
-        if (customers != null)
+        if (!(await context.Customers.AnyAsync()) && isEnvDevelopment)
         {
-            foreach (var customer in customers)
+            var customerData = await File.ReadAllTextAsync("Data/CustomerSeedData.json");
+
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+
+            var customers = JsonSerializer.Deserialize<List<Customer>>(customerData);
+            if (customers != null)
             {
-                context.Customers.Add(customer);
+                foreach (var customer in customers)
+                {
+                    context.Customers.Add(customer);
+                }
+                await context.SaveChangesAsync();
             }
-            await context.SaveChangesAsync();
-        }
+        }        
     }
 }
