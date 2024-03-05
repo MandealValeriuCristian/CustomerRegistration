@@ -22,7 +22,11 @@ builder.Services.AddAutoMapper(typeof(MapperProfiles).Assembly);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-
+app.UseCors(builder => builder
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowCredentials()
+    .WithOrigins("http://localhost:4200", "https://localhost:4200"));
 app.MapControllers();
 
 using var scope = app.Services.CreateScope();
