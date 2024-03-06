@@ -1,0 +1,90 @@
+
+<div class="modal-header" (hidden)="onModalHidden()">
+    <h4 class="modal-title pull-left">{{ title }}</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- <div class="col-8">
+      <div class="alert alert-info pb-0" *ngIf="registerForm?.dirty">
+          <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
+      </div>
+    </div> -->
+    <form (ngModelChange)="onFormChanged()" (close)="preventClose($event)">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Bob Kwik" [(ngModel)]="customer.name" name="name">
+        </div>
+        <div class="form-group">
+          <label for="websiteURL">Website URL</label>
+          <input type="text" class="form-control" id="websiteURL" placeholder="https://..."  [(ngModel)]="customer.websiteURL" name="websiteURL">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="bob.kwik@example.com" [(ngModel)]="customer.email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" class="form-control" id="phone" placeholder="+0123456789" [(ngModel)]="customer.phone" name="phone">
+        </div>
+        <div class="form-group">
+          <p class="mt-4"><strong>Postal Address:</strong></p>
+          <label for="street">Street</label>
+          <input type="text" class="form-control" id="street" placeholder="5th Avenue" [(ngModel)]="customer.postalAddress.street" name="street">
+        </div>
+        <div class="form-group">
+          <label for="number">Number</label>
+          <input type="text" class="form-control" id="number" placeholder="100" [(ngModel)]="customer.postalAddress.number" name="number">
+        </div>
+        <div class="form-group">
+          <label for="postCode">Post Code</label>
+          <input type="text" class="form-control" id="postCode"placeholder="12345" [(ngModel)]="customer.postalAddress.postCode" name="postCode">
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" class="form-control" id="city" placeholder="New York" [(ngModel)]="customer.postalAddress.city" name="city">
+        </div>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input type="text" class="form-control" id="country" placeholder="USA" [(ngModel)]="customer.postalAddress.country" name="country">
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="showInvoicing" (change)="toggleInvoicingAddress()">
+          <label class="form-check-label" for="showInvoicing">Different Invoicing Address</label>
+        </div>
+        <div *ngIf="showInvoicingAddress">
+          <div class="form-group">
+            <p class="mt-4"><strong>Invoicing Address:</strong></p>
+            <label for="street">Street</label>
+            <input type="text" class="form-control" id="street" placeholder="5th Avenue" [(ngModel)]="customer.invoicingAddress.street" name="street">
+          </div>
+          <div class="form-group">
+            <label for="number">Number</label>
+            <input type="text" class="form-control" id="number" placeholder="100" [(ngModel)]="customer.invoicingAddress.number" name="number">
+          </div>
+          <div class="form-group">
+            <label for="postCode">Post Code</label>
+            <input type="text" class="form-control" id="postCode"placeholder="12345" [(ngModel)]="customer.invoicingAddress.postCode" name="postCode">
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" placeholder="New York" [(ngModel)]="customer.invoicingAddress.city" name="city">
+          </div>
+          <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" class="form-control" id="country" placeholder="USA" [(ngModel)]="customer.invoicingAddress.country" name="country">
+          </div>
+        </div>
+      </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{ cancelBtnName }}</button>
+    <button type="submit" 
+      class="btn btn-primary" 
+    
+      form="registerForm"  
+      
+      (click)="submitRegisterForm(); bsModalRef.hide()"
+      >{{ registerBtnName }}</button>
+  </div>

@@ -9,6 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomerCardComponent } from './customers/customer-card/customer-card.component';
 import { CustomerDetailsComponent } from './customers/customer-details/customer-details.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { RegisterCustomerModalComponent } from './modals/register-customer-modal/register-customer-modal.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
     CustomerListComponent,
     CustomerCardComponent,
     CustomerDetailsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    RegisterCustomerModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ModalModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

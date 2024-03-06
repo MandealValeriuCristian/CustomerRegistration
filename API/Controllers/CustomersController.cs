@@ -47,7 +47,7 @@ public class CustomersController : ControllerBase
     }
 
     [HttpPost]
-    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<CustomerForListDto>))]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CustomerForCreateDto))]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> CreateAsync([FromBody]CustomerForCreateDto customerDto)
     {

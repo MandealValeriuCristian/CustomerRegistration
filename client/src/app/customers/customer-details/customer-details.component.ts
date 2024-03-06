@@ -23,23 +23,9 @@ export class CustomerDetailsComponent implements OnInit {
     this.customerService.getCustomer(customerId).subscribe({
       next: customer => {
         this.customer = customer
-        console.log(this.customer);
+        // console.log(this.customer);
         
       }
     })
   }
-  // navigateToCustomerList()
-  // navigateToCustomerDetails(customerId: number){
-  //   this.router.navigate([
-  //     'customers',
-  //     customerId
-  //   ]);
-  // }
-  // getAddresses() {
-  //   if(!this.customer) return;
-  //   for (const address of this.customer.postalAddress) {
-
-  //   }
-  // }
-
 }
