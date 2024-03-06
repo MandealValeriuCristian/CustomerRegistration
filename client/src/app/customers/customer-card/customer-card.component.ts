@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { Customer } from 'src/_models/customer';
 
 @Component({
@@ -8,9 +9,15 @@ import { Customer } from 'src/_models/customer';
 })
 export class CustomerCardComponent implements OnInit {
   @Input() customer: Customer | undefined;
-
+  router = inject(Router);
   constructor() { }
 
   ngOnInit(): void {
+  }
+  navigateToCustomerDetails(customerId: number){
+    this.router.navigate([
+      'customers',
+      customerId
+    ]);
   }
 }

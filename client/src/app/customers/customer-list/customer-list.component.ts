@@ -15,7 +15,7 @@ export class CustomerListComponent implements OnInit {
   }
 
   loadCustomers() {
-    this.customerService.getMembers().subscribe({
+    this.customerService.getCustomers().subscribe({
       next: customers => this.customers = customers
     })
   }
