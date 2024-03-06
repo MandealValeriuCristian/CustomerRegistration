@@ -6,11 +6,17 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CustomerCardComponent } from './customers/customer-card/customer-card.component';
+import { CustomerDetailsComponent } from './customers/customer-details/customer-details.component';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    CustomerCardComponent,
+    CustomerDetailsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

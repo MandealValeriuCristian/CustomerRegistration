@@ -1,0 +1,13 @@
+<div class="card mb-4" *ngIf="customer">
+    <div class="card-img-wrapper">
+        
+    </div>
+    <div class="card-header text-center" bis_skin_checked="1"><i class="fa fa-user me-2"></i>{{customer.name}}</div>
+    <div class="card-body p-1">
+        <p class="card-text text-muted text-left gap-2"><i class="fa fa-envelope icon-spacing"></i>{{customer.email}}</p>
+        <p class="card-text text-left"><i class="fa fa-globe icon-spacing"></i> <a href={{customer.websiteURL}} class="card-link" target="_blank">{{customer.websiteURL}}</a></p>
+        
+    </div>
+    <div class="card-footer text-muted text-center">
+        <button class="btn btn-primary"><i class="fa fa-info icon-spacing"></i>View details</button></div> 
+</div>

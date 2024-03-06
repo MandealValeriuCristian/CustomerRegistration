@@ -1,0 +1,41 @@
+.card-img-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+/* .member-icons {
+    position: absolute;
+    bottom: -30%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+} */
+.btn .btn-primary {
+    /* position: absolute; */
+    /* margin-left: auto; */
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: 1rem;
+}
+.card-body{
+    width: 320px;
+    align-items: center;
+    justify-content: left;
+    gap: 2px;
+}
+.card-text .text-muted .text-center
+{
+    align-items: center;
+    justify-content: left;
+    gap: 2px;
+}
+.card-text .fa {
+    margin-left: 1rem; /* Adjust the spacing as needed */
+    gap: 5px;
+  }
+  .icon-spacing {
+    margin-right: 1rem; /* Adjust the spacing as needed */
+  }

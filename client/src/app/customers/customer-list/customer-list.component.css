@@ -1,0 +1,8 @@
+.row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Six equal-width columns */
+    gap: 1rem; /* Spacing between columns */
+  }
+  .grid app-customer-card { /* Style nested app-customer-card elements */
+    /* Add styles for app-customer-card as needed */
+  }

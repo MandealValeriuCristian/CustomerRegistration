@@ -8,7 +8,7 @@
     "PostalAddress": {
 
       "Street": "123 Main Street",
-      "Number": 10,
+      "Number": "10",
       "PostCode": "12345",
       "City": "Cityville",
       "Country": "USA"
@@ -16,7 +16,7 @@
     "InvoicingAddress": {
 
       "Street": "456 Oak Avenue",
-      "Number": 20,
+      "Number": "20",
       "PostCode": "54321",
       "City": "Townsville",
       "Country": "USA"
@@ -31,7 +31,7 @@
     "PostalAddress": {
 
       "Street": "789 Elm Street",
-      "Number": 30,
+      "Number": "30",
       "PostCode": "67890",
       "City": "Villageville",
       "Country": "USA"
@@ -47,14 +47,14 @@
     "PostalAddress": {
 
       "Street": "321 Pine Avenue",
-      "Number": 40,
+      "Number": "40",
       "PostCode": "54321",
       "City": "Forestville",
       "Country": "USA"
     },
     "InvoicingAddress": {
       "Street": "654 Cedar Road",
-      "Number": 50,
+      "Number": "50",
       "PostCode": "09876",
       "City": "Woodsville",
       "Country": "USA"
@@ -69,7 +69,7 @@
     "PostalAddress": {
 
       "Street": "987 Maple Lane",
-      "Number": 60,
+      "Number": "60",
       "PostCode": "34567",
       "City": "Mapleville",
       "Country": "USA"
@@ -85,7 +85,7 @@
     "PostalAddress": {
 
       "Street": "741 Birch Street",
-      "Number": 70,
+      "Number": "70",
       "PostCode": "23456",
       "City": "Birchville",
       "Country": "USA"
@@ -93,7 +93,7 @@
     "InvoicingAddress": {
 
       "Street": "852 Oak Road",
-      "Number": 80,
+      "Number": "80",
       "PostCode": "45678",
       "City": "Oakville",
       "Country": "USA"
@@ -108,7 +108,7 @@
     "PostalAddress": {
 
       "Street": "369 Pine Road",
-      "Number": 90,
+      "Number": "90",
       "PostCode": "87654",
       "City": "Pineville",
       "Country": "USA"
@@ -116,7 +116,7 @@
     "InvoicingAddress": {
 
       "Street": "258 Elm Lane",
-      "Number": 100,
+      "Number": "100",
       "PostCode": "54321",
       "City": "Elmville",
       "Country": "USA"
@@ -130,7 +130,7 @@
     "Phone": "+1888999000",
     "PostalAddress": {
       "Street": "963 Oak Avenue",
-      "Number": 110,
+      "Number": "110",
       "PostCode": "76543",
       "City": "Oaktown",
       "Country": "USA"
@@ -146,7 +146,7 @@
     "PostalAddress": {
 
       "Street": "159 Maple Street",
-      "Number": 120,
+      "Number": "120",
       "PostCode": "34567",
       "City": "Maplewood",
       "Country": "USA"
@@ -154,7 +154,7 @@
     "InvoicingAddress": {
 
       "Street": "753 Cedar Lane",
-      "Number": 130,
+      "Number": "130",
       "PostCode": "65432",
       "City": "Cedarville",
       "Country": "USA"
@@ -169,7 +169,7 @@
     "PostalAddress": {
 
       "Street": "357 Elm Road",
-      "Number": 140,
+      "Number": "140",
       "PostCode": "98765",
       "City": "Elmwood",
       "Country": "USA"
@@ -177,7 +177,7 @@
     "InvoicingAddress": {
 
       "Street": "951 Pine Avenue",
-      "Number": 150,
+      "Number": "150",
       "PostCode": "23456",
       "City": "Pineville",
       "Country": "USA"
@@ -185,14 +185,14 @@
   },
   {
 
-    "Name": "Michaela Rodriguez",
-    "WebsiteURL": "https://www.michaelarodriguez.com",
-    "Email": "michaela.rodriguez@example.com",
+    "Name": "Stan Lee",
+    "WebsiteURL": "https://www.stanlee.com",
+    "Email": "stan.lee@example.com",
     "Phone": "+1777888999",
     "PostalAddress": {
 
       "Street": "753 Birch Lane",
-      "Number": 160,
+      "Number": "160",
       "PostCode": "87654",
       "City": "Birchwood",
       "Country": "USA"
