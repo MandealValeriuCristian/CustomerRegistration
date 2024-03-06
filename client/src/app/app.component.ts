@@ -8,13 +8,7 @@ import { Customer } from 'src/_models/customer';
 })
 export class AppComponent implements OnInit{
   title = 'Customer Registration';
-  @Input() customers: Customer[] | undefined;
-  constructor(private http: HttpClient) {}  
-  ngOnInit(): void {
-    this.http.get<Customer[]>('http://localhost:4000/api/customers').subscribe({
-      next: response => this.customers = response,
-      error: error => console.log(error),
-      complete: () => console.log('Request has completed')
-    })
+  constructor() {}  
+  ngOnInit(): void {    
   }
 }
