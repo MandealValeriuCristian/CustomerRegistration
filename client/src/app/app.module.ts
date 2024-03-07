@@ -11,7 +11,7 @@ import { CustomerDetailsComponent } from './customers/customer-details/customer-
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { RegisterCustomerModalComponent } from './modals/register-customer-modal/register-customer-modal.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule,
     ModalModule.forRoot(),
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

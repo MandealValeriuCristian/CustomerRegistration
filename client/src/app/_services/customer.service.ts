@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment.development';
 import { CustomerDetailsComponent } from '../customers/customer-details/customer-details.component';
 import { RegisterCustomer } from 'src/_models/registerCustomer';
 import { ApiResponseModel } from 'src/_models/apiResponseModel';
+import { CreateCustomer } from 'src/_models/createCustomer';
 
 @Injectable({
   providedIn: 'root'
@@ -28,15 +29,13 @@ export class CustomerService {
   getCustomer(id: string){
     return this._http.get<CustomerDetails>(this.baseUrl + 'customers/' + id)
   }
-  registerCustomer(model: RegisterCustomer): Observable<Customer> {
+  registerCustomer(model: CreateCustomer): Observable<RegisterCustomer> {
     return this._http.post<ApiResponseModel>(this.baseUrl + 'customers', model)
     .pipe(
       map((response: ApiResponseModel) => {
-        if(response.errorMessage) throw new Error(response.errorMessage);
-        const customer = response.data;
-        this.customers.push(customer);
-        console.log(response.data);
-        return response.data;
+        if(response?.errorMessage) 
+          throw new Error(response?.errorMessage);
+        return response?.data;
       })
     );
   }

@@ -1,90 +1,187 @@
 
-<div class="modal-header" (hidden)="onModalHidden()">
+<div class="modal-header" >
     <h4 class="modal-title pull-left">{{ title }}</h4>
     <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
       <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <!-- <div class="col-8">
-      <div class="alert alert-info pb-0" *ngIf="registerForm?.dirty">
-          <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
-      </div>
-    </div> -->
-    <form (ngModelChange)="onFormChanged()" (close)="preventClose($event)">
+    <form [formGroup]="registerCustomerForm"(ngSubmit)="submitRegisterForm()">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Bob Kwik" [(ngModel)]="customer.name" name="name">
+          <input type="text" class="form-control" id="name" placeholder="Bob Kwik" name="name" formControlName="name">
+          <span class="text-danger"
+              *ngIf="(name?.touched || submitted) && name?.errors?.['required']">
+              Name is required
+          </span>
+          <span class="text-danger"
+              *ngIf="name?.errors?.['maxlength']">
+              Name must at most 200 characters long.
+          </span>
         </div>
         <div class="form-group">
           <label for="websiteURL">Website URL</label>
-          <input type="text" class="form-control" id="websiteURL" placeholder="https://..."  [(ngModel)]="customer.websiteURL" name="websiteURL">
+          <input type="text" class="form-control" id="websiteURL" placeholder="https://..."  name="websiteURL" formControlName="websiteURL">
+          <span class="text-danger" *ngIf="(websiteURL?.touched || submitted) && websiteURL?.errors?.['required']">
+            Website URL is required
+          </span>
+          <span class="text-danger"
+              *ngIf="websiteURL?.errors?.['maxlength']">
+              Website URL must at most 100 characters long.
+          </span>
+          <span class="text-danger"
+              *ngIf="websiteURL?.errors?.['pattern']">
+              Please enter a valid website URL
+          </span>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="bob.kwik@example.com" [(ngModel)]="customer.email" name="email">
+          <input type="email" class="form-control" id="email" placeholder="bob.kwik@example.com"  name="email" formControlName="email">
+          <span class="text-danger" *ngIf="(email?.touched || submitted) && email?.errors?.['required']">
+            Email is required
+          </span>
+          <span class="text-danger" *ngIf="(email?.touched || submitted) && email?.errors?.['email']">
+            Invalid email format
+          </span>
+          <span class="text-danger"
+              *ngIf="email?.errors?.['maxlength']">
+              Name must at most 100 characters long.
+          </span>
         </div>
         <div class="form-group">
           <label for="phone">Phone</label>
-          <input type="text" class="form-control" id="phone" placeholder="+0123456789" [(ngModel)]="customer.phone" name="phone">
+          <input type="text" class="form-control" id="phone" placeholder="+0123456789"  name="phone" formControlName="phone">
+          <span class="text-danger" *ngIf="(phone?.touched || submitted) && phone?.errors?.['required']">
+            Phone is required
+          </span>
+          <span class="text-danger"
+              *ngIf="phone?.errors?.['maxlength']">
+              Phone must at most 15 characters long.
+          </span>
+          <span class="text-danger"
+            *ngIf="phone?.errors?.['pattern']">
+            Please enter a valid 10-digit phone number
+          </span>
         </div>
-        <div class="form-group">
-          <p class="mt-4"><strong>Postal Address:</strong></p>
-          <label for="street">Street</label>
-          <input type="text" class="form-control" id="street" placeholder="5th Avenue" [(ngModel)]="customer.postalAddress.street" name="street">
-        </div>
-        <div class="form-group">
-          <label for="number">Number</label>
-          <input type="text" class="form-control" id="number" placeholder="100" [(ngModel)]="customer.postalAddress.number" name="number">
-        </div>
-        <div class="form-group">
-          <label for="postCode">Post Code</label>
-          <input type="text" class="form-control" id="postCode"placeholder="12345" [(ngModel)]="customer.postalAddress.postCode" name="postCode">
-        </div>
-        <div class="form-group">
-          <label for="city">City</label>
-          <input type="text" class="form-control" id="city" placeholder="New York" [(ngModel)]="customer.postalAddress.city" name="city">
-        </div>
-        <div class="form-group">
-          <label for="country">Country</label>
-          <input type="text" class="form-control" id="country" placeholder="USA" [(ngModel)]="customer.postalAddress.country" name="country">
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="showInvoicing" (change)="toggleInvoicingAddress()">
-          <label class="form-check-label" for="showInvoicing">Different Invoicing Address</label>
-        </div>
-        <div *ngIf="showInvoicingAddress">
-          <div class="form-group">
-            <p class="mt-4"><strong>Invoicing Address:</strong></p>
-            <label for="street">Street</label>
-            <input type="text" class="form-control" id="street" placeholder="5th Avenue" [(ngModel)]="customer.invoicingAddress.street" name="street">
-          </div>
+        <div class="form-group" formGroupName="postalAddress">
+              <div class="form-group"><p class="mt-4"><strong>Postal Address:</strong></p>
+              <label for="street">Street</label>
+              <input type="text" class="form-control" id="street" placeholder="5th Avenue"  name="street" formControlName="street">
+              <span class="text-danger" *ngIf="(postalAddressStreet?.touched || submitted) && postalAddressStreet?.errors?.['required']">
+                Postal Address Street is required
+              </span>
+              <span class="text-danger"
+              *ngIf="postalAddressStreet?.errors?.['maxlength']">
+              Postal Address Street must at most 100 characters long.
+          </span>
+            </div>
           <div class="form-group">
             <label for="number">Number</label>
-            <input type="text" class="form-control" id="number" placeholder="100" [(ngModel)]="customer.invoicingAddress.number" name="number">
+            <input type="text" class="form-control" id="number" placeholder="100"  name="number" formControlName="number">
+            <span class="text-danger" *ngIf="(postalAddressNumber?.touched || submitted) && postalAddressNumber?.errors?.['required']">
+              Postal Address Number is required
+            </span>
+            <span class="text-danger"
+              *ngIf="postalAddressNumber?.errors?.['maxlength']">
+              Postal Address Number must at most 10 characters long.
+          </span>
           </div>
           <div class="form-group">
             <label for="postCode">Post Code</label>
-            <input type="text" class="form-control" id="postCode"placeholder="12345" [(ngModel)]="customer.invoicingAddress.postCode" name="postCode">
+            <input type="text" class="form-control" id="postCode"placeholder="12345"  name="postCode" formControlName="postCode">
+            <span class="text-danger" *ngIf="(postalAddressPostCode?.touched || submitted) && postalAddressPostCode?.errors?.['required']">
+              Postal Address Post Code is required
+            </span>
+            <span class="text-danger"
+              *ngIf="postalAddressPostCode?.errors?.['maxlength']">
+              Postal Address Number must at most 100 characters long.
+          </span>
+          <span class="text-danger"
+              *ngIf="postalAddressPostCode?.errors?.['pattern']">
+              Please enter a valid 5-digit postal code
+            </span>
           </div>
           <div class="form-group">
             <label for="city">City</label>
-            <input type="text" class="form-control" id="city" placeholder="New York" [(ngModel)]="customer.invoicingAddress.city" name="city">
+            <input type="text" class="form-control" id="city" placeholder="New York"  name="city" formControlName="city">
+            <span class="text-danger" *ngIf="(postalAddressCity?.touched || submitted) && postalAddressCity?.errors?.['required']">
+              Postal Address City is required
+            </span>
+                <span class="text-danger"
+                *ngIf="postalAddressCity?.errors?.['maxlength']">
+                Postal Address City must at most 100 characters long.
+            </span>
           </div>
           <div class="form-group">
             <label for="country">Country</label>
-            <input type="text" class="form-control" id="country" placeholder="USA" [(ngModel)]="customer.invoicingAddress.country" name="country">
+            <input type="text" class="form-control" id="country" placeholder="USA"  name="country" formControlName="country">
+            <span class="text-danger" *ngIf="(postalAddressCountry?.touched || submitted) && postalAddressCountry?.errors?.['required']">
+              Postal Address Country is required
+            </span>
+            <span class="text-danger"
+            *ngIf="postalAddressCountry?.errors?.['maxlength']">
+            Postal Address Country must at most 100 characters long.
+        </span>
           </div>
         </div>
+        
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="showInvoicing" (change)="toggleInvoicingAddress()">
+          <label class="form-check-label" for="showInvoicing">Different Address for Invoice: </label>
+        </div>
+        <div *ngIf="showInvoicingAddress">
+          <div class="form-group" formGroupName="invoicingAddress">
+            <div>
+            <p class="mt-4"><strong>Invoicing Address:</strong></p>
+            <label for="street">Street</label>
+            <input type="text" class="form-control" id="street" placeholder="5th Avenue" name="street" formControlName="street">
+            <span class="text-danger" *ngIf="invoicingAddressStreet?.errors?.['maxlength']">
+              Invoicing Address Street must at most 100 characters long.
+            </span>
+          </div>
+        
+          <div class="form-group">
+            <label for="number">Number</label>
+            <input type="text" class="form-control" id="number" placeholder="100"  name="number" formControlName="number">
+            <span class="text-danger" *ngIf="invoicingAddressNumber?.errors?.['maxlength']">
+              Invoicing Address Number must at most 100 characters long.
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="postCode">Post Code</label>
+            <input type="text" class="form-control" id="postCode"placeholder="12345" name="postCode" formControlName="postCode">
+            <span class="text-danger" *ngIf="invoicingAddressPostCode?.errors?.['maxlength']">
+              Invoicing Address Post Code must at most 100 characters long.
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" placeholder="New York"  name="city" formControlName="city">
+            <span class="text-danger" *ngIf="invoicingAddressCity?.errors?.['maxlength']">
+              Invoicing Address City must at most 100 characters long.
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" class="form-control" id="country" placeholder="USA"  name="country" formControlName="country">
+            <span class="text-danger" *ngIf="invoicingAddressCountry?.errors?.['maxlength']">
+              Invoicing Address Country must at most 100 characters long.
+            </span>
+          </div>
+        </div>  
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{ cancelBtnName }}</button>
+        <button type="submit" 
+          class="btn btn-primary"       
+          form="registerForm"
+          (click)="submitRegisterForm();bsModalRef.hide()"
+          routerLink="/"
+          >{{ registerBtnName }}</button>
+      </div>
+        
       </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{ cancelBtnName }}</button>
-    <button type="submit" 
-      class="btn btn-primary" 
-    
-      form="registerForm"  
-      
-      (click)="submitRegisterForm(); bsModalRef.hide()"
-      >{{ registerBtnName }}</button>
+  
   </div>

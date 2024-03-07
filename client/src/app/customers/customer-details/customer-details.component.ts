@@ -23,8 +23,6 @@ export class CustomerDetailsComponent implements OnInit {
     this.customerService.getCustomer(customerId).subscribe({
       next: customer => {
         this.customer = customer
-        // console.log(this.customer);
-        
       }
     })
   }
